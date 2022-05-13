@@ -1,2 +1,4 @@
 #!/bin/bash
-bin/n98-magerun2 db:dump --stdout "$@"
+
+source env/db.env
+bin/cli mysqldump -h"${MYSQL_HOST}" -P"${MYSQL_PORT}" -u"${MYSQL_USER}" -p"${MYSQL_PASSWORD}" "${MYSQL_DATABASE}"

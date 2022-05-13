@@ -1,0 +1,14 @@
+#!/bin/bash
+set -o errexit
+
+docker-compose ${DOCKER_COMPOSE_FILES} up -d --build --force-recreate --remove-orphans "$@"
+
+echo -e "\nsetting up cron..."
+bin/magento cron:install
+bin/cron start
+
+echo -e "\ncleaning cache..."
+bin/magento cache:clean
+
+echo -e "\nreindexing..."
+magento indexer:reindex

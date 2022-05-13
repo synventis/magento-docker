@@ -1,0 +1,4 @@
+#!/bin/bash
+set -o errexit
+
+docker-compose ${DOCKER_COMPOSE_FILES} system prune "$@"
