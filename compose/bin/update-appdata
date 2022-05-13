@@ -4,6 +4,7 @@ COMPOSE_YML=docker-compose.yml
   && COMPOSE_YML=$MAGENTO_HOME/$COMPOSE_YML
 [ ! -f "$COMPOSE_YML" ] \
   && echo "MAGENTO_HOME not set" \
+  && exit 1
 APP_DATA=$(grep ':/var/www/html' "$COMPOSE_YML" | tr -d '[:space:]-' | cut -d':' -f1)
 magento maintenance:enable \
   && echo "Claiming filesystem ownerships..." \
