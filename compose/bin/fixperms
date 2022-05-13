@@ -7,5 +7,3 @@ if [ -z "$1" ]; then
 else
   bin/clinotty find "$1" \( -type f -or -type d \) -exec chmod u+w {} +;
 fi
-
-echo "Filesystem permissions fixed."

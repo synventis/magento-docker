@@ -2,7 +2,7 @@
 set -o errexit
 mkdir -p tmpupdate && cd "$_"
 curl -s https://raw.githubusercontent.com/synventis/docker-magento/master/lib/template | /bin/bash
-rsync -aP --delete ./bin/ ../bin
+rsync -aP --checksum --delete ./bin/ ../bin
 cd ..
 rm -rf tmpupdate
 echo "docker-magento has been updated"

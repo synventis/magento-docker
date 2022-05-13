@@ -1,0 +1,14 @@
+#!/bin/bash
+COMPOSE_YML=docker-compose.yml
+[ -n "$MAGENTO_HOME" ] \
+  && COMPOSE_YML=$MAGENTO_HOME/$COMPOSE_YML
+[ ! -f "$COMPOSE_YML" ] \
+  && echo "MAGENTO_HOME not set" \
+APP_DATA=$(grep ':/var/www/html' "$COMPOSE_YML" | tr -d '[:space:]-' | cut -d':' -f1)
+magento maintenance:enable \
+  && echo "Claiming filesystem ownerships..." \
+  && sudo chown -R "$USER:$(id -gn)" "$APP_DATA" \
+  && echo "Pulling git repo..." \
+  && git -C "$APP_DATA" pull
+fixowns
+magento maintenance:disable
