@@ -1,4 +1,5 @@
 #!/bin/bash
+PATH="/usr/bin:/bin:$PATH"
 COMPOSE_YML=docker-compose.yml
 [ -n "$MAGENTO_HOME" ] \
   && COMPOSE_YML=$MAGENTO_HOME/$COMPOSE_YML
