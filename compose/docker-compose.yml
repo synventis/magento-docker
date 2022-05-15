@@ -21,8 +21,9 @@ services:
       - "80:8000"
       - "443:8443"
     volumes: &appvolumes
-      - /mnt/appdata:/var/www/html
-      - /mnt/ssldata:/etc/nginx/certs
+      - /mnt/magento/appdata:/var/www/html
+      - /mnt/magento/ssldata:/etc/nginx/certs:ro
+      - ~/.ssh/github-appdata:/var/www/.ssh/id_ed25519
       - sockdata:/sock
 
   phpfpm:
@@ -52,8 +53,8 @@ services:
 
   elasticsearch:
     container_name: 'elasticsearch'
-    image: markoshust/magento-elasticsearch:7.16-0
-    restart: "no"
+    image: markoshust/magento-elasticsearch:7.16
+    restart: "unless-stopped"
     ports:
       - "127.0.0.1:9200:9200"
       - "127.0.0.1:9300:9300"
