@@ -1,10 +1,10 @@
 ## Mark Shust's Docker Configuration for Magento
-## (https://github.com/markshust/docker-magento)
+## (https://github.com/synventis/docker-magento)
 ##
 ## Version 42.0.0
 
-## To use SSH, see https://github.com/markshust/docker-magento#ssh
-## Linux users, see https://github.com/markshust/docker-magento#linux
+## To use SSH, see https://github.com/synventis/docker-magento#ssh
+## Linux users, see https://github.com/synventis/docker-magento#linux
 
 ## If you changed the default Docker network, you may need to replace
 ## 172.17.0.1 in this file with the result of:
