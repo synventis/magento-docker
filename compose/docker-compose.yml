@@ -19,7 +19,7 @@ services:
 
   phpfpm:
     container_name: 'phpfpm'
-    image: markoshust/magento-php:5.6-fpm
+    image: synventis/magento-php:5.6-fpm
     volumes: *appvolumes
     restart: "unless-stopped"
 
