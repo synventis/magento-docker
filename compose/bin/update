@@ -1,0 +1,9 @@
+#!/bin/bash
+set -o errexit
+PATH="/usr/bin:/bin:$PATH"
+mkdir -p tmpupdate && cd "$_"
+curl -s https://raw.githubusercontent.com/synventis/docker-magento/magento1/lib/template | /bin/bash
+rsync -aP --checksum --delete ./bin/ ../bin
+cd ..
+rm -rf tmpupdate
+echo "magento-docker has been updated"
