@@ -1,5 +1,5 @@
 FROM php:5.6-fpm
-MAINTAINER Mark Shust <mark@shust.com>
+MAINTAINER Marc Sladek <marc.sladek@synventis.com>
 
 RUN apt-get update && apt-get install -y \
   cron \
