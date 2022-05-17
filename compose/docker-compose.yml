@@ -1,4 +1,4 @@
-# Mark Shust's Docker Configuration for Magento (https://github.com/markoshust/docker-magento)
+# Mark Shust's Docker Configuration for Magento (https://github.com/synventis/docker-magento)
 # Version 20.1.0
 
 version: "3"
@@ -25,7 +25,7 @@ services:
 
   # Disabling cron by default as it uses higher CPU, enable if needed
   #cron:
-  #  image: markoshust/magento-php:5.6-fpm-6
+  #  image: synventis/magento-php:5.6-fpm-6
   #  user: root
   #  command: /usr/local/bin/cronstart
   #  tty: true
