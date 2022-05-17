@@ -6,12 +6,13 @@ version: "3"
 services:
   magento:
     container_name: 'magento'
-    build: images/nginx
+    image: markoshust/magento-nginx:1.18
     ports:
       - "80:8000"
       - "443:8443"
     volumes: &appvolumes
       - /mnt/magento/appdata:/var/www/html:delegated
+      - /mnt/magento/conf/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ~/.composer:/var/www/.composer:delegated
       - sockdata:/sock
     restart: "unless-stopped"
