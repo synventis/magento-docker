@@ -37,7 +37,7 @@ services:
     container_name: 'sqlserver'
     image: mariadb:10.4
     restart: "unless-stopped"
-    command: --max_allowed_packet=64M
+    command: --max_allowed_packet=64M --innodb_flush_log_at_trx_commit=1
     ports:
       - "127.0.0.1:3306:3306"
     env_file: env/db.env
