@@ -11,9 +11,10 @@ services:
       - "80:8000"
       - "443:8443"
     volumes: &appvolumes
-      - /mnt/magento/appdata:/var/www/html:delegated
+      - /mnt/magento/appdata:/var/www/html
+      - /mnt/magento/ssldata:/etc/nginx/certs:ro
       - /mnt/magento/conf/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ~/.composer:/var/www/.composer:delegated
+      - ~/.composer:/var/www/.composer
       - sockdata:/sock
     restart: "unless-stopped"
 
