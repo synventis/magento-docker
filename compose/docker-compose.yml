@@ -51,5 +51,18 @@ services:
       - /mnt/magento/dbdata:/var/lib/mysql
     restart: "unless-stopped"
 
+  logrotate:
+    container_name: 'logrotate'
+    image: blacklabelops/logrotate
+    volumes:
+      - /mnt/magento/appdata/var/log:/magento/var/log
+    environment:
+      - "LOGS_DIRECTORIES=/magento/var/log"
+      - "LOGROTATE_COPIES=5"
+      - "LOGROTATE_INTERVAL=hourly"
+      - "LOGROTATE_SIZE=100M"
+      - "LOGROTATE_COMPRESSION=nocompress"
+    restart: "unless-stopped"
+
 volumes:
   sockdata:
