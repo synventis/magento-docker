@@ -76,6 +76,7 @@ services:
     environment:
       - "LOGS_DIRECTORIES=/magento/var/log"
       - "LOGROTATE_COPIES=5"
+      - "LOGROTATE_INTERVAL=hourly"
       - "LOGROTATE_SIZE=100M"
       - "LOGROTATE_COMPRESSION=nocompress"
 
