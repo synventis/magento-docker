@@ -67,6 +67,18 @@ services:
       - "cluster.routing.allocation.disk.threshold_enabled=false"
       - "index.blocks.read_only_allow_delete"
 
+  logrotate:
+    container_name: 'logrotate'
+    image: blacklabelops/logrotate
+    restart: "unless-stopped"
+    volumes:
+      - /mnt/magento/appdata/var/log:/magento/var/log
+    environment:
+      - "LOGS_DIRECTORIES=/magento/var/log"
+      - "LOGROTATE_COPIES=5"
+      - "LOGROTATE_SIZE=100M"
+      - "LOGROTATE_COMPRESSION=nocompress"
+
 volumes:
   dbdata:
   sockdata:
