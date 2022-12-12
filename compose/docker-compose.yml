@@ -79,6 +79,7 @@ services:
       - "LOGROTATE_INTERVAL=hourly"
       - "LOGROTATE_SIZE=100M"
       - "LOGROTATE_COMPRESSION=nocompress"
+      - "LOGROTATE_CRONSCHEDULE=@hourly"
 
 volumes:
   dbdata:
