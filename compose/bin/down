@@ -1,4 +1,4 @@
 #!/bin/bash
 set -o errexit
 
-docker-compose ${DOCKER_COMPOSE_FILES} down "$@"
+docker compose ${DOCKER_COMPOSE_FILES} down "$@"

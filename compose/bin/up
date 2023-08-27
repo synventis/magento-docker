@@ -1,8 +1,8 @@
 #!/bin/bash
 set -o errexit
 
-docker-compose ${DOCKER_COMPOSE_FILES} pull
-docker-compose ${DOCKER_COMPOSE_FILES} up -d --build --force-recreate --remove-orphans "$@"
+docker compose ${DOCKER_COMPOSE_FILES} pull
+docker compose ${DOCKER_COMPOSE_FILES} up -d --build --force-recreate --remove-orphans "$@"
 
 echo -e "\nsetting up cron..."
 bin/magento cron:install
