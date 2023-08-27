@@ -1,0 +1,17 @@
+[Unit]
+Description=Start magento cron
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/magento
+Environment="XDG_RUNTIME_DIR=/run/user/1111"
+Environment="DOCKER_HOST=unix:///run/user/1111/docker.sock"
+Environment="PATH=/mnt/magento/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStartPre=/bin/sleep 60
+ExecStart=/mnt/magento/bin/cron start
+RemainAfterExit=no
+
+[Install]
+WantedBy=default.target
