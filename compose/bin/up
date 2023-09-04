@@ -4,6 +4,9 @@ set -o errexit
 docker compose ${DOCKER_COMPOSE_FILES} pull
 docker compose ${DOCKER_COMPOSE_FILES} up -d --build --force-recreate --remove-orphans "$@"
 
+echo -e "\nsetting up composer auth..."
+bin/setup-composer-auth
+
 echo -e "\nsetting up cron..."
 bin/magento cron:install
 bin/cron start
